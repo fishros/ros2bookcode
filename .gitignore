@@ -1,0 +1,6 @@
+install/
+build/
+log/
+CMakeFiles/
+CMakeCache.txt
+*.out

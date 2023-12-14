@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+   <xacro:include filename="$(find fishbot_description)/urdf/fishbot/common_inertia.xacro" />
+    <xacro:macro name="camera_xacro" params="xyz">
+        <!-- ============相机模块================ -->
+        <link name="camera_link">
+            <visual>
+                <origin xyz="0 0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.02 0.10 0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.02 0.10 0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8"/>
+                </material>
+            </collision>
+            <xacro:box_inertia m="0.01" w="0.02" h="0.10" d="0.02" />
+        </link>
+        <link name="camera_optical_link"></link>
+        <joint name="camera_optical_joint" type="fixed">
+            <parent link="camera_link" />
+            <child link="camera_optical_link" />
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+        </joint>
+
+        <joint name="camera_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="camera_link" />
+            <origin xyz="${xyz}" />
+        </joint>
+    </xacro:macro>
+
+</robot>

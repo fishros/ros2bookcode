@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+   <xacro:include filename="$(find fishbot_description)/urdf/fishbot/common_inertia.xacro" />
+    <xacro:macro name="laser_xacro" params="xyz">
+        <gazebo reference="laser_cylinder_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+        <gazebo reference="laser_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <!-- ============雷达支撑杆================ -->
+        <link name="laser_cylinder_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.10" radius="0.01" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.10" radius="0.01" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8" />
+                </material>
+            </collision>
+            <xacro:cylinder_inertia m="0.01" r="0.01" h="0.10" />
+        </link>
+
+
+
+        <joint name="laser_cylinder_joint" type="fixed">
+            <parent link="base_link" />
+            <child link="laser_cylinder_link" />
+            <origin xyz="${xyz}" />
+        </joint>
+        <!-- ============雷达================ -->
+        <link name="laser_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.02" radius="0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.02" radius="0.02" />
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 0.8" />
+                </material>
+            </collision>
+            <xacro:cylinder_inertia m="0.03" r="0.02" h="0.02" />
+        </link>
+
+        <joint name="laser_joint" type="fixed">
+            <parent link="laser_cylinder_link" />
+            <child link="laser_link" />
+            <origin xyz="0 0 0.05" />
+        </joint>
+
+    </xacro:macro>
+
+</robot>

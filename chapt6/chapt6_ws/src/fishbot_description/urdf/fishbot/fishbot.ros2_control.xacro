@@ -35,6 +35,10 @@
         <gazebo>
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <parameters>$(find fishbot_description)/config/fishbot_ros2_controller.yaml</parameters>
+            <ros>
+                <remapping>/fishbot_diff_drive_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
+                <remapping>/fishbot_diff_drive_controller/odom:=/odom</remapping>
+            </ros>
         </plugin>
 </gazebo>
     </xacro:macro>

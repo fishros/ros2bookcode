@@ -1,0 +1,5 @@
+<library path="spin_motion_controller">
+	<class name="motion_control_system/SpinMotionController" type="motion_control_system::SpinMotionController" base_class_type="motion_control_system::MotionController">
+	 <description>Spin Motion Controller</description>
+	</class>
+</library>

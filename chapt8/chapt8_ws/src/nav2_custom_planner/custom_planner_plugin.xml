@@ -1,0 +1,5 @@
+<library path="nav2_custom_planner_plugin">
+	<class name="nav2_custom_planner/CustomPlanner" type="nav2_custom_planner::CustomPlanner" base_class_type="nav2_core::GlobalPlanner">
+	  <description>是一个自定义示例插件，用于生成自定义路径。</description>
+	</class>
+</library>

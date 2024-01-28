@@ -1,0 +1,9 @@
+<class_libraries>
+    <library path="nav2_custom_controller_plugin">
+        <class type="nav2_custom_controller::CustomController" base_class_type="nav2_core::Controller">
+            <description>
+                自定义导航控制器
+            </description>
+        </class>
+    </library>
+</class_libraries>

@@ -6,7 +6,7 @@ from cv_bridge import CvBridge # 用于转换格式
 import cv2
 import face_recognition
 import time
-
+from rcl_interfaces.msg import SetParametersResult
 
 class FaceDetectorionNode(Node):
     def __init__(self):
@@ -21,6 +21,19 @@ class FaceDetectorionNode(Node):
         self.declare_parameter('face_locations_model', "hog")
         self.model = self.get_parameter("face_locations_model").value
         self.upsample_times = self.get_parameter("face_locations_upsample_times").value
+        self.set_parameters([rclpy.Parameter('face_locations_model', rclpy.Parameter.Type.STRING, 'cnn')])
+        self.add_on_set_parameters_callback(self.parameter_callback)
+
+    def parameter_callback(self, parameters):
+        for parameter in parameters:
+            self.get_logger().info(
+                f'参数 {parameter.name} 设置为：{parameter.value}')
+            if parameter.name == 'face_locations_upsample_times':
+                self.upsample_times = parameter.value
+            if parameter.name == 'face_locations_model':
+                self.mode = parameter.value
+        return SetParametersResult(successful=True)
+    
 
     def detect_face_callback(self, request, response):
         if request.image.data:

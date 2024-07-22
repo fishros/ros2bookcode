@@ -61,7 +61,7 @@ colcon build
 
 ```
 source install/setup.bash
-ros2 launch fishbot_description gazebo.launch.py
+ros2 launch fishbot_description gazebo_sim.launch.py
 ```
 
 运行导航

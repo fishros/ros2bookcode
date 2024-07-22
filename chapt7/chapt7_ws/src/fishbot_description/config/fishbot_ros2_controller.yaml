@@ -29,7 +29,7 @@ fishbot_diff_drive_controller:
     left_wheel_names: ["left_wheel_joint"]
     right_wheel_names: ["right_wheel_joint"]
 
-    wheel_separation: 0.17
+    wheel_separation: 0.20
     #wheels_per_side: 1  # actually 2, but both are controlled by 1 signal
     wheel_radius: 0.032
 
@@ -40,8 +40,8 @@ fishbot_diff_drive_controller:
     publish_rate: 50.0
     odom_frame_id: odom
     base_frame_id: base_footprint
-    pose_covariance_diagonal : [0.001, 0.001, 0.0, 0.0, 0.0, 0.01]
-    twist_covariance_diagonal: [0.001, 0.0, 0.0, 0.0, 0.0, 0.01]
+    pose_covariance_diagonal : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    twist_covariance_diagonal: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     open_loop: true
     enable_odom_tf: true

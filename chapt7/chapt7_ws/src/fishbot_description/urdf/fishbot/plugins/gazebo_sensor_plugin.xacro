@@ -6,14 +6,14 @@
                 <plugin name="laserscan" filename="libgazebo_ros_ray_sensor.so">
                     <ros>
                         <namespace>/</namespace>
-                        <remapping>~/out:=scan</remapping>
+                        <remapping>~/out:=scan1</remapping>
                     </ros>
                     <output_type>sensor_msgs/LaserScan</output_type>
                     <frame_name>laser_link</frame_name>
                 </plugin>
                 <always_on>true</always_on>
-                <visualize>true</visualize>
-                <update_rate>5</update_rate>
+                <visualize>false</visualize>
+                <update_rate>10</update_rate>
                 <pose>0 0 0 0 0 0</pose>
 								<!-- 激光传感器配置 -->
                 <ray>

@@ -25,10 +25,10 @@
             <geometry>
                 <box size="0.02 0.02 0.02" />
             </geometry>
-        </visual>
-        <material name="black">
-            <color rgba="0 0 0 0.5" />
-        </material>
+            <material name="black">
+                <color rgba="0 0 0 0.5" />
+            </material>
+        </visual>     
     </link>
 
     <!-- 机器人关节 -->
